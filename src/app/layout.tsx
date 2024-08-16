@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,14 +18,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <header>
+      <head>
         <link rel="icon" href="/favicon.png" />
-      </header>
+      </head>
       <body
-        className={`flex min-h-screen flex-col items-center justify-between bg-gray-300/80 ${inter.className}`}
+        className={`flex min-h-screen flex-col justify-between bg-gray-300/80 ${inter.className}`}
       >
         <Header />
-        {children}
+        <div className="p-10 flex flex-col font-satoshi">{children}</div>
+        <Footer />
       </body>
     </html>
   );
