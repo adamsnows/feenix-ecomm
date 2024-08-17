@@ -42,9 +42,9 @@ const LoginModal = ({
       };
       localStorage.setItem("authToken", token);
       localStorage.setItem("userInfo", JSON.stringify(userInfo));
+      localStorage.setItem("cart", JSON.stringify([]));
       toast.success("Logged in successfully!");
       onLoginSuccess(userInfo);
-      router.push("/");
       onClose();
     } catch (err) {
       setError("Invalid username or password");

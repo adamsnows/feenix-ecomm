@@ -3,39 +3,52 @@
 import { FaPlus } from "react-icons/fa6";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { useCart } from "@/context/cart-context";
+import { useUser } from "@/context/user-context";
+import { Product } from "@/types";
 
 interface ProductDetailsProps {
   name: string;
   category: string;
   price: number;
+  description: string;
+  image: string;
 }
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({
   name,
   category,
   price,
+  description,
+  image,
 }) => {
   const [selectedColor, setSelectedColor] = useState<string>("");
+  const { addToCart } = useCart();
+  const { isLoggedIn } = useUser();
 
   const handleAddToCart = () => {
+    if (!isLoggedIn) {
+      toast.error("Please log in to add items to the cart.");
+      return;
+    }
+
     if (!selectedColor) {
       toast.error("Please select a color.");
       return;
     }
 
-    const item = {
+    const item: Product = {
+      id: Date.now(),
+      title: name,
       name,
       category,
       price,
       color: selectedColor,
+      description,
+      image,
     };
 
-    const cartItems = JSON.parse(localStorage.getItem("cart") || "[]");
-    cartItems.push(item);
-    localStorage.setItem("cart", JSON.stringify(cartItems));
-
-    window.dispatchEvent(new Event("cartUpdated"));
-
+    addToCart(item);
     toast.success("Item added to cart!");
   };
 
@@ -48,7 +61,6 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
       <div className="flex flex-col gap-2">
         <span>Available colors:</span>
         <div className="flex gap-4">
-          {/* Exemplo de cores */}
           <div
             className={`border p-1 rounded-full border-gray-400 ${
               selectedColor === "gray-900" ? "ring-2 ring-gray-900" : ""
@@ -84,15 +96,8 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
           <FaPlus className="text-black" />
         </div>
       </div>
-      <span className="text-xs mt-10">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </span>
+      <span className="text-xs mt-10">{description}</span>
+      <img src={image} alt={name} className="w-full mt-4" />
     </div>
   );
 };

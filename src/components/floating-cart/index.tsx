@@ -1,52 +1,25 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaTimes, FaTrashAlt } from "react-icons/fa";
-import { Product } from "@/types";
 import { CiShoppingCart } from "react-icons/ci";
+import { useCart } from "@/context/cart-context";
+import { useUser } from "@/context/user-context";
 
 const FloatingCart: React.FC = () => {
-  const [cartItems, setCartItems] = useState<Product[]>([]);
+  const { cartItems, removeFromCart } = useCart();
+  const { isLoggedIn } = useUser();
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-
-  const updateCart = () => {
-    const storedCartItems = JSON.parse(localStorage.getItem("cart") || "[]");
-    setCartItems(storedCartItems);
-  };
-
-  useEffect(() => {
-    const authToken = localStorage.getItem("authToken");
-    if (authToken) {
-      setIsLoggedIn(true);
-      updateCart();
-      window.addEventListener("storage", handleStorageChange);
-      window.addEventListener("cartUpdated", updateCart);
-    }
-
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-      window.removeEventListener("cartUpdated", updateCart);
-    };
-  }, []);
-
-  const handleStorageChange = (event: StorageEvent) => {
-    if (event.key === "cart") {
-      updateCart();
-    }
-  };
 
   const handleRemoveItem = (index: number) => {
-    const updatedCartItems = cartItems.filter((_, i) => i !== index);
-    setCartItems(updatedCartItems);
-    localStorage.setItem("cart", JSON.stringify(updatedCartItems));
+    removeFromCart(index);
   };
 
   const toggleCartVisibility = () => {
     setIsVisible(!isVisible);
   };
 
-  if (!isLoggedIn) {
+  if (!isLoggedIn || cartItems.length === 0) {
     return null;
   }
 

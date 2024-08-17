@@ -1,30 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Input, Button } from "rizzui";
 import Link from "next/link";
 import NavTab from "../nav-tab";
 import LoginModal from "../modals/login";
+import { useUser } from "@/context/user-context";
 
 const Header = () => {
   const [state, setState] = useState<string>("");
   const [isLoginModalOpen, setLoginModalOpen] = useState<boolean>(false);
-  const [user, setUser] = useState<{ username: string; photo: string } | null>(
-    null
-  );
-
-  useEffect(() => {
-    const userInfo = localStorage.getItem("userInfo");
-    if (userInfo) {
-      const { username, photo } = JSON.parse(userInfo);
-      setUser({
-        username,
-        photo: photo || "/photos/default.png",
-      });
-    }
-  }, []);
-
+  const { user, logout, setUser } = useUser();
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (state.trim()) {
@@ -39,9 +26,7 @@ const Header = () => {
   ];
 
   const handleLogout = () => {
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("userInfo");
-    setUser(null);
+    logout();
   };
 
   const handleLoginSuccess = (userInfo: {
@@ -103,7 +88,7 @@ const Header = () => {
       <LoginModal
         isOpen={isLoginModalOpen}
         onClose={() => setLoginModalOpen(false)}
-        onLoginSuccess={handleLoginSuccess} // Passe a função de callback
+        onLoginSuccess={handleLoginSuccess}
       />
     </>
   );

@@ -10,6 +10,8 @@ import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "react-hot-toast";
 import FloatingCart from "@/components/floating-cart";
 import "animate.css";
+import { CartProvider } from "@/context/cart-context";
+import { UserProvider } from "@/context/user-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,13 +33,17 @@ export default function RootLayout({
       <body
         className={`flex min-h-screen flex-col bg-gray-300/80 ${inter.className}`}
       >
-        <Toaster position="top-center" />
-        <NextTopLoader color="#ff6347" speed={100} />
-        <Header />
-        <div className="flex flex-1 container mx-auto my-5 font-satoshi">
-          {children}
-          <FloatingCart />
-        </div>
+        <UserProvider>
+          <CartProvider>
+            <Toaster position="top-center" />
+            <NextTopLoader color="#ff6347" speed={100} />
+            <Header />
+            <div className="flex flex-1 container mx-auto my-5 font-satoshi">
+              {children}
+              <FloatingCart />
+            </div>
+          </CartProvider>
+        </UserProvider>
         <Footer />
       </body>
     </html>
