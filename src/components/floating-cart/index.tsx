@@ -42,7 +42,6 @@ const FloatingCart: React.FC = () => {
     localStorage.setItem("cart", JSON.stringify(updatedCartItems));
   };
 
-  // Alterna a visibilidade do carrinho
   const toggleCartVisibility = () => {
     setIsVisible(!isVisible);
   };
