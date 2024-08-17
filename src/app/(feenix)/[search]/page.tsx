@@ -42,7 +42,7 @@ const SearchResultsPage = () => {
           <ProductCard key={product.id} product={product} />
         ))
       ) : (
-        <div className="col-span-4 text-center text-gray-600">
+        <div className="col-span-4 text-center text-gray-600 m-auto">
           No products found.
         </div>
       )}

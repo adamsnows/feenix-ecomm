@@ -10,11 +10,11 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <Link className="h-[400px] w-full" href={`/product/${product.id}`}>
-      <div className="bg-white w-full h-[300px]">
+      <div className="bg-white w-full  p-10">
         <img
           src={product.image}
           alt={product.title}
-          className="mx-auto h-[300px] object-contain"
+          className="mx-auto h-[250px] object-contain"
         />
       </div>
       <div className="flex flex-col mt-2">
