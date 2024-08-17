@@ -1,11 +1,10 @@
 "use client";
 
-import { FaPlus } from "react-icons/fa6";
+import { Product } from "@/types";
+import { FaPlus } from "react-icons/fa";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useCart } from "@/context/cart-context";
-import { useUser } from "@/context/user-context";
-import { Product } from "@/types";
 
 interface ProductDetailsProps {
   name: string;
@@ -24,14 +23,8 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
 }) => {
   const [selectedColor, setSelectedColor] = useState<string>("");
   const { addToCart } = useCart();
-  const { isLoggedIn } = useUser();
 
   const handleAddToCart = () => {
-    if (!isLoggedIn) {
-      toast.error("Please log in to add items to the cart.");
-      return;
-    }
-
     if (!selectedColor) {
       toast.error("Please select a color.");
       return;
@@ -97,7 +90,6 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
         </div>
       </div>
       <span className="text-xs mt-10">{description}</span>
-      <img src={image} alt={name} className="w-full mt-4" />
     </div>
   );
 };

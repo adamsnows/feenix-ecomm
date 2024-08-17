@@ -9,13 +9,13 @@ interface ProductImageProps {
 
 const ProductImage: React.FC<ProductImageProps> = ({ image, name }) => {
   return (
-    <div className="bg-white h-full w-full col-span-2 rounded">
+    <div className="bg-white h-full w-full col-span-2 rounded p-4 flex items-center justify-center">
       <Image
         src={image}
         alt={name}
-        width={600}
+        width={450}
         height={400}
-        className="mx-auto"
+        className="m-auto"
       />
     </div>
   );

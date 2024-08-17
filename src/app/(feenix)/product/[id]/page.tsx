@@ -1,44 +1,32 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { Loader } from "rizzui";
-import { useParams } from "next/navigation";
+import ProductDetails from "@/components/product/product-details";
 import { fetchProductById } from "@/services/productService";
-import { Product } from "@/types";
 import ProductTabs from "@/components/product/product-tabs";
 import ProductImage from "@/components/product/product-image";
-import ProductDetails from "@/components/product/product-details";
 
-const ProductViewPage: React.FC = () => {
-  const [product, setProduct] = useState<Product | null>(null);
-  const { id } = useParams();
+interface ProductPageProps {
+  params: { id: number };
+}
 
-  useEffect(() => {
-    const getProduct = async () => {
-      if (id) {
-        const productData = await fetchProductById(Number(id));
-        setProduct(productData);
-      }
-    };
+const ProductPage = async ({ params }: ProductPageProps) => {
+  const product = await fetchProductById(params.id);
 
-    getProduct();
-  }, [id]);
-
-  if (!product) {
-    return <Loader size="xl" className="mx-auto" />;
+  if (!product || !product.description || !product.image) {
+    return <p>Product not found or missing details.</p>;
   }
 
   return (
-    <div className="grid grid-cols-4 my-5 w-full gap-10">
+    <div className="flex gap-4">
       <ProductTabs description={product.description} />
       <ProductImage image={product.image} name={product.name} />
       <ProductDetails
         name={product.name}
         category={product.category}
         price={product.price}
+        description={product.description}
+        image={product.image}
       />
     </div>
   );
 };
 
-export default ProductViewPage;
+export default ProductPage;

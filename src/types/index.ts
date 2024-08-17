@@ -15,3 +15,11 @@ export interface CartItem {
   price: number;
   color: string;
 }
+
+export interface ProductDetailsProps {
+  name: string;
+  category: string;
+  price: number;
+  description: string;
+  image: string;
+}
