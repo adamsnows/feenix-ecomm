@@ -34,6 +34,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
     cartItems.push(item);
     localStorage.setItem("cart", JSON.stringify(cartItems));
 
+    // Emite um evento customizado para notificar a atualização
+    window.dispatchEvent(new Event("cartUpdated"));
+
     toast.success("Item added to cart!");
   };
 

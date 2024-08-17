@@ -8,6 +8,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "react-hot-toast";
+import FloatingCart from "@/components/floating-cart";
+import "animate.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +36,7 @@ export default function RootLayout({
         <Header />
         <div className="flex flex-1 container mx-auto my-5 font-satoshi">
           {children}
+          <FloatingCart />
         </div>
         <Footer />
       </body>

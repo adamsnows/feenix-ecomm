@@ -1,5 +1,3 @@
-// Header.tsx
-
 "use client";
 
 import Image from "next/image";
@@ -22,7 +20,7 @@ const Header = () => {
       const { username, photo } = JSON.parse(userInfo);
       setUser({
         username,
-        photo: photo || "/photos/default.png", // Defina uma foto padrão, se necessário
+        photo: photo || "/photos/default.png",
       });
     }
   }, []);
