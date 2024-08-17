@@ -3,12 +3,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { BsTwitterX } from "react-icons/bs";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
-  const router = useRouter();
   return (
     <div className="w-full h-[600px] bg-gray-900 flex items-center justify-center flex-col mt-auto">
       <div className="w-9/12 flex justify-between items-center">
@@ -157,28 +155,28 @@ const Footer = () => {
               Why Feenix.ai?
             </Link>
             <Link
-              href=""
+              href="https://meetings.hubspot.com/hkhazaal/website-demo-request"
               target="_blank"
               className="hover:text-white transition-all duration-300"
             >
               Book demo
             </Link>
             <Link
-              href=""
+              href="https://feenixai.trust.site/"
               target="_blank"
               className="hover:text-white transition-all duration-300"
             >
               Compliance
             </Link>
             <Link
-              href=""
+              href="https://www.feenix.ai/support/"
               target="_blank"
               className="hover:text-white transition-all duration-300"
             >
               Support
             </Link>
             <Link
-              href=""
+              href="https://www.feenix.ai/contacts-us/"
               target="_blank"
               className="hover:text-white transition-all duration-300"
             >

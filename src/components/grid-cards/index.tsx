@@ -1,16 +1,17 @@
+import { useEffect, useState } from "react";
 import ProductCard from "../cards/product-card";
+import { Product } from "@/types";
 
-const GridCards = () => {
+interface GridCardsProps {
+  products: Product[];
+}
+
+const GridCards: React.FC<GridCardsProps> = ({ products }) => {
   return (
     <div className="grid grid-cols-4 my-10 gap-6">
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
     </div>
   );
 };
