@@ -7,7 +7,7 @@ import ProductCard from "@/components/cards/product-card";
 import { Loader } from "rizzui";
 import toast from "react-hot-toast";
 
-const jewelryPage = () => {
+const JewelryPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -52,4 +52,4 @@ const jewelryPage = () => {
   );
 };
 
-export default jewelryPage;
+export default JewelryPage;
