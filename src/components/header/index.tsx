@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <div className="w-full h-[70px] bg-white flex items-center justify-center">
-      <div className="w-9/12 flex justify-between items-center">
+      <div className="container flex justify-between items-center">
         <Link href="/">
           <Image
             src="/logo-with-text.png"
