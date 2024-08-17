@@ -1,5 +1,15 @@
-import Image from "next/image";
+import GridCards from "@/components/grid-cards";
+import Hero from "@/components/hero";
+import SwiperCards from "@/components/swiper";
 
 export default function Home() {
-  return <main className=""></main>;
+  return (
+    <div className="flex flex-col ">
+      <Hero />
+      <GridCards />
+      <SwiperCards />
+      <GridCards />
+      <SwiperCards />
+    </div>
+  );
 }

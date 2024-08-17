@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,10 +25,12 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.png" />
       </head>
       <body
-        className={`flex min-h-screen flex-col justify-between bg-gray-300/80 ${inter.className}`}
+        className={`flex min-h-screen flex-col bg-gray-300/80 ${inter.className}`}
       >
         <Header />
-        <div className="p-10 flex flex-col font-satoshi">{children}</div>
+        <div className="flex flex-1 container mx-auto my-5 font-satoshi">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

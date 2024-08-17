@@ -10,15 +10,17 @@ import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 const Footer = () => {
   const router = useRouter();
   return (
-    <div className="w-full h-[600px] bg-gray-900 flex items-center justify-center flex-col">
+    <div className="w-full h-[600px] bg-gray-900 flex items-center justify-center flex-col mt-auto">
       <div className="w-9/12 flex justify-between items-center">
-        <div className="flex flex-col gap-4">
-          <Image
-            src="/feenix-vertical.svg"
-            width={180}
-            height={180}
-            alt="Feenix logo"
-          />
+        <div className="hidden flex-col gap-4 2xl:flex">
+          <Link href="/">
+            <Image
+              src="/feenix-vertical.svg"
+              width={180}
+              height={180}
+              alt="Feenix logo"
+            />
+          </Link>
           <span className="text-white text-xl font-bold mt-2">
             Certifications
           </span>
