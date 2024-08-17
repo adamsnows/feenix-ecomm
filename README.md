@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+    <img src="https://www.feenix.ai/wp-content/uploads/2023/11/Group.png" width="30px" /> <a href="https://feenix-test.vercel.app/" target="_blank">Feenix E-Commerce</a> <img src="https://www.feenix.ai/wp-content/uploads/2023/11/Group.png" width="30px" />
+</h1>
 
-## Getting Started
+<h3 align="center">Your modern and intuitive online store.</h3>
 
-First, run the development server:
+<br/>
+
+### 🤔 Problem
+
+Today, users face challenges in finding products quickly and efficiently in online stores. With a vast array of products available, locating exactly what you're looking for can be a challenge. Feenix E-Commerce aims to centralize a selection of products in a single platform, providing a more intuitive and enjoyable shopping experience.
+
+### 💡 Solution
+
+We created an e-commerce site using Next.js 14 and Tailwind CSS to offer a responsive and modern user experience. The site utilizes the Fake Store API to provide product data and display relevant information. The interface is designed to facilitate navigation and product search, featuring a homepage highlighting featured products, a search page, and category pages.
+
+## 🛠 Technologies Used
+
+- [x] [Next.js 14](https://nextjs.org/) - The React Framework for Production
+- [x] [Tailwind CSS](https://tailwindcss.com/) - CSS Framework for styling
+- [x] [Axios](https://axios-http.com/) - HTTP client for requests
+- [x] [RizzUI](https://rizzui.com/) - UI component library
+- [x] [Fake Store API](https://fakestoreapi.com/) - API for product data
+- [x] [Vercel](https://vercel.com/) - Deployment tool for the application
+
+### ✅ Demo Link
+
+- [x] Frontend -> <a href="https://feenix-test.vercel.app/" target="_blank">App Link</a>
+
+### ✅ How to Run the Application Locally
+
+First, you need the following technologies:
+
+- [x] [Git](https://git-scm.com)
+- [x] [NPM](https://www.npmjs.com/)
+- [x] [VSCode](https://code.visualstudio.com/)
+
+<br/>
+
+### 🎲 Setting Up the Environment
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone this repository
+
+$ git clone git@github.com:adamsnows/feenix-test.git
+
+
+# Navigate into the cloned repository
+
+$ cd feenix-test
+
+$ npm install
+
+
+$ npm run dev
+
+# After this, Next.js will inform you of the port where your application is running. Simply hold the CTRL key and click on the localhost link!!
+
+# Done, now the environment is fully set up!
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
