@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import NextTopLoader from "nextjs-toploader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +22,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <header>
+      <head>
         <link rel="icon" href="/favicon.png" />
-      </header>
-      <body className={inter.className}>{children}</body>
+      </head>
+      <body
+        className={`flex min-h-screen flex-col bg-gray-300/80 ${inter.className}`}
+      >
+        <NextTopLoader color="#ff6347" speed={100} />
+        <Header />
+        <div className="flex flex-1 container mx-auto my-5 font-satoshi">
+          {children}
+        </div>
+        <Footer />
+      </body>
     </html>
   );
 }
