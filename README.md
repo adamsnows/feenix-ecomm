@@ -6,13 +6,7 @@
 
 <br/>
 
-### 🤔 Problem
-
-Today, users face challenges in finding products quickly and efficiently in online stores. With a vast array of products available, locating exactly what you're looking for can be a challenge. Feenix E-Commerce aims to centralize a selection of products in a single platform, providing a more intuitive and enjoyable shopping experience.
-
-### 💡 Solution
-
-We created an e-commerce site using Next.js 14 and Tailwind CSS to offer a responsive and modern user experience. The site utilizes the Fake Store API to provide product data and display relevant information. The interface is designed to facilitate navigation and product search, featuring a homepage highlighting featured products, a search page, and category pages.
+This project is an e-commerce application developed as part of the technical test for Feenix. The application was built using **Next.js** and **React**, focusing on a modern interface, shopping cart functionalities, global state management, and integration with a product API.
 
 ## 🛠 Technologies Used
 
@@ -36,6 +30,18 @@ First, you need the following technologies:
 - [x] [VSCode](https://code.visualstudio.com/)
 
 <br/>
+
+### ✍️ Dev strategies
+
+1. **User Interface (UI)**: The UI was developed with a mobile-first approach, ensuring responsiveness and accessibility. Key components include product cards, a sticky header with navigation, and a dynamic shopping cart.
+
+2. **Shopping Cart Functionality**: The cart is managed using the Context API, allowing items to be added, removed, and displayed across the app. The cart data is stored in LocalStorage, making it persistent even after page reloads.
+
+3. **User Authentication**: The app checks if a user is logged in before allowing access to certain features, such as adding items to the cart. User data is stored in LocalStorage and dynamically loaded upon page load.
+
+4. **Dynamic Routing**: Each product has its own page, dynamically rendered based on the product ID using Next.js routing.
+
+5. **Error Handling**: The project includes basic error handling for failed API requests and missing product data, providing a smooth user experience.
 
 ### 🎲 Setting Up the Environment
 

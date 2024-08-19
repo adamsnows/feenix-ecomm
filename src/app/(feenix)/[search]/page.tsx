@@ -15,19 +15,19 @@ const SearchResultsPage = () => {
 
   useEffect(() => {
     const getProducts = async () => {
-      setLoading(true); // Start loading
+      setLoading(true);
       const allProducts = await fetchProducts();
       const filteredProducts = allProducts.filter((product: Product) =>
         product.title.toLowerCase().includes(query.toLowerCase())
       );
       setProducts(filteredProducts);
-      setLoading(false); // End loading
+      setLoading(false);
     };
 
     if (query) {
       getProducts();
     } else {
-      setLoading(false); // Stop loading if no query
+      setLoading(false);
     }
   }, [query]);
 
