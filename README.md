@@ -29,8 +29,6 @@ First, you need the following technologies:
 - [x] [NPM](https://www.npmjs.com/)
 - [x] [VSCode](https://code.visualstudio.com/)
 
-<br/>
-
 ### ✍️ Dev strategies
 
 1. **User Interface (UI)**: The UI was developed with a mobile-first approach, ensuring responsiveness and accessibility. Key components include product cards, a sticky header with navigation, and a dynamic shopping cart.
