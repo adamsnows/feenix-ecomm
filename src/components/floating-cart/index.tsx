@@ -9,7 +9,7 @@ import { useUser } from "@/context/user-context";
 const FloatingCart: React.FC = () => {
   const { cartItems, removeFromCart } = useCart();
   const { isLoggedIn } = useUser();
-  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleRemoveItem = (index: number) => {
     removeFromCart(index);

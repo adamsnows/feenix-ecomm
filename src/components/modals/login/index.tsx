@@ -25,7 +25,6 @@ const LoginModal = ({
   const [password, setPassword] = useState(defaultUser.password);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

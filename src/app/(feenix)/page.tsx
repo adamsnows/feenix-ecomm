@@ -47,7 +47,6 @@ export default function Home() {
           )
       )
       .slice(0, initialSwiperCount);
-
     const remainingProducts = allProducts
       .filter(
         (product) =>
@@ -95,9 +94,21 @@ export default function Home() {
   return (
     <div className="flex flex-col ">
       <Hero />
-      <GridCards products={initialGridProducts} />
-      <SwiperCards products={initialSwiperProducts} />
-      <GridCards products={remainingProductsAfterInitial} />
+      <GridCards
+        products={initialGridProducts.sort((a, b) =>
+          a.title.localeCompare(b.title)
+        )}
+      />
+      <SwiperCards
+        products={initialSwiperProducts.sort((a, b) =>
+          a.title.localeCompare(b.title)
+        )}
+      />
+      <GridCards
+        products={remainingProductsAfterInitial.sort((a, b) =>
+          a.title.localeCompare(b.title)
+        )}
+      />
     </div>
   );
 }
